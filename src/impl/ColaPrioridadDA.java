@@ -1,6 +1,6 @@
 package impl;
 
-import API.ColaConPrioridadTDA;
+import api.ColaConPrioridadTDA;
 
 public class ColaPrioridadDA implements ColaConPrioridadTDA {
 	

@@ -1,12 +1,12 @@
-package TP1;
+package tp1;
 
+import api.ColaConPrioridadTDA;
 import impl.ColaPrioridadDA;
-import API.ColaConPrioridadTDA;
 
 public class TrabajoPracticoI {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stub	
 		
 		ColaConPrioridadTDA colaPrioridad = new ColaPrioridadDA();
 		

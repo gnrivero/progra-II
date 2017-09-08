@@ -1,6 +1,6 @@
 package impl;
 
-import API.PilaTDA;
+import api.PilaTDA;
 
 public class PilaTF implements PilaTDA {
 	

@@ -1,6 +1,6 @@
 package impl;
 
-import API.ColaTDA;
+import api.ColaTDA;
 
 public class ColaPI implements ColaTDA {
 

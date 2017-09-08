@@ -1,4 +1,4 @@
-package API;
+package api;
 
 //Apunte de progra II V1
 public interface PilaTDA {
