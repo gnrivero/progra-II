@@ -5,6 +5,7 @@ import api.ConjuntoTDA;
 public class ConjuntoLD implements ConjuntoTDA {
 
 	Nodo c;
+	private static final int MAX = 10;
 	
 	@Override
 	public void InicializarConjunto() {
@@ -36,14 +37,29 @@ public class ConjuntoLD implements ConjuntoTDA {
 
 	@Override
 	public void Sacar(int x) {
-		// TODO terminar esto
-
+		if (c != null) {
+			//si es el primer elemento de la lista
+			if (c.info == x) {
+				c = c.sig;
+			} else {
+				Nodo aux = c;
+				while (aux.sig != null && aux.sig.info != x)
+					aux = aux.sig;
+				
+				if(aux.sig != null)
+					aux.sig = aux.sig.sig;
+				}
+		}
+		
 	}
 
 	@Override
 	public boolean Pertenece(int x) {
-		// TODO terminar esto
-		return false;
+		Nodo aux = c;
+		while ((aux != null) && (aux.info != x)) {
+			aux = aux.sig;
+		}
+		return (aux != null);
 	}
 
 }
