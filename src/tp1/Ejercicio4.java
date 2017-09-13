@@ -8,7 +8,7 @@ import impl.ColaPI;
 import impl.ColaPU;
 import impl.PilaTF;
 
-public class TP_I_Cola {
+public class Ejercicio4 {
 
 	public static void main(String[] args) {				
 		

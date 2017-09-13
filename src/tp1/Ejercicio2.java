@@ -5,7 +5,7 @@ import impl.PilaTI;
 import api.PilaTDA;
 
 
-public class TP_I_Pila {
+public class Ejercicio2 {
 
 	public static void main(String[] args) {
 				
