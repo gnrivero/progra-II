@@ -1,8 +1,8 @@
 package tp1;
 
+import impl.estaticos.basicos.PilaTI;
 import utils.PilaUtils;
-import impl.PilaTI;
-import api.PilaTDA;
+import api.basicos.PilaTDA;
 
 
 public class Ejercicio2 {

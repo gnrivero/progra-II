@@ -1,6 +1,7 @@
-package impl;
+package impl.dinamicos.conjuntos;
 
-import api.ConjuntoTDA;
+import impl.dinamicos.conjuntos.Nodo;
+import api.conjuntos.ConjuntoTDA;
 
 public class ConjuntoLD implements ConjuntoTDA {
 

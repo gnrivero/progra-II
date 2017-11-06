@@ -1,15 +1,15 @@
-package impl;
+package impl.dinamicos.diccionarios;
 
-import api.ConjuntoTDA;
-import api.DiccionarioSimpleTDA;
+import impl.dinamicos.conjuntos.ConjuntoLD;
+import api.conjuntos.ConjuntoTDA;
+import api.diccionarios.DiccionarioSimpleTDA;
 
 public class DicSimpleL implements DiccionarioSimpleTDA {
 	
 	class NodoClave {
 		int clave;
 		int valor;
-		
-		
+				
 		NodoClave sigClave;
 	}
 	
@@ -79,7 +79,7 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 			c.Agregar(aux.clave);
 			aux = aux.sigClave;
 		}
-		return c ;
+		return c;
 	}
 
 }

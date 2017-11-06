@@ -1,7 +1,7 @@
 package tp4;
 
-import impl.ABB;
-import api.ABBTDA;
+import impl.dinamicos.arboles.ABB;
+import api.arboles.ABBTDA;
 
 public class Recursividad {
 	

@@ -1,6 +1,6 @@
-package impl;
+package impl.dinamicos.basicos;
 
-import api.ColaTDA;
+import api.basicos.ColaTDA;
 
 public class ColaLD implements ColaTDA {
 	
@@ -32,7 +32,7 @@ public class ColaLD implements ColaTDA {
 
 	@Override
 	public void Desacolar() {
-		primero = primero. sig ;
+		primero = primero.sig ;
 		
 		// Si la cola queda vacia
 		if ( primero == null )

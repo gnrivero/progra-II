@@ -1,4 +1,4 @@
-package api;
+package api.basicos;
 
 //Apunte de progra II V1
 public interface PilaTDA {

@@ -1,8 +1,8 @@
-package api;
+package api.basicos;
 
 public interface ColaTDA {
 	
-	void InicializarCola () ;
+	void InicializarCola ();
 	// siempre que la cola est´e inicializada
 	void Acolar( int x);
 	// siempre que la cola est´e inicializada y no est´e vac´ıa	

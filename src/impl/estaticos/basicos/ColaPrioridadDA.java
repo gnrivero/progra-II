@@ -1,6 +1,6 @@
-package impl;
+package impl.estaticos.basicos;
 
-import api.ColaConPrioridadTDA;
+import api.basicos.ColaConPrioridadTDA;
 
 public class ColaPrioridadDA implements ColaConPrioridadTDA {
 	

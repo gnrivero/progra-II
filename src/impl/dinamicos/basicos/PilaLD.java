@@ -1,6 +1,6 @@
-package impl;
+package impl.dinamicos.basicos;
 
-import api.PilaTDA;
+import api.basicos.PilaTDA;
 
 public class PilaLD implements PilaTDA {
 

@@ -1,4 +1,4 @@
-package api;
+package api.conjuntos;
 
 public interface ConjuntoTDA {
 	
@@ -12,6 +12,6 @@ public interface ConjuntoTDA {
 	// siempre que el conjunto est´e inicializado
 	void Sacar( int x);
 	// siempre que el conjunto est´e inicializado
-	boolean Pertenece( int x);
+	boolean Pertenece( int x);		
 
 }

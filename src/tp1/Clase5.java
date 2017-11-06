@@ -1,6 +1,6 @@
 package tp1;
 
-import impl.ColaPrioridadLD;
+import impl.dinamicos.basicos.ColaPrioridadLD;
 
 public class Clase5 {
 

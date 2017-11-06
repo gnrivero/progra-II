@@ -1,6 +1,6 @@
-package impl;
+package impl.estaticos.basicos;
 
-import api.PilaTDA;
+import api.basicos.PilaTDA;
 
 public class PilaTI implements PilaTDA {
 

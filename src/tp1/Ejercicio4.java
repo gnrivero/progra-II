@@ -1,20 +1,82 @@
 package tp1;
 
+import impl.estaticos.basicos.ColaPI;
+import impl.estaticos.basicos.ColaPU;
+import impl.estaticos.basicos.PilaTF;
 import utils.ColaUtils;
 import utils.PilaUtils;
-import api.ColaTDA;
-import api.PilaTDA;
-import impl.ColaPI;
-import impl.ColaPU;
-import impl.PilaTF;
+import api.basicos.ColaTDA;
+import api.basicos.PilaTDA;
 
 public class Ejercicio4 {
 
 	public static void main(String[] args) {				
 		
-		ejercicio4c();
+		ColaTDA cola1 = new ColaPU();
+		ColaTDA cola2 = new ColaPU();
+	
+		cola1.InicializarCola();
+		cola2.InicializarCola();
+		
+		cola1.Acolar(10);
+		cola1.Acolar(8);
+		cola1.Acolar(24);
+		cola1.Acolar(59);
+		cola1.Acolar(90);
+		cola1.Acolar(43);
+
+		cola2.Acolar(59);
+		cola2.Acolar(24);
+		cola2.Acolar(8);
+		cola2.Acolar(10);
+		//cola2.Acolar(90);
+		
+		String mensaje = "No es inversa";
+				
+		if( esInversa(cola1, cola2) )
+			mensaje = "Es inversa";
+				
+		System.out.println(mensaje);
 		
 		System.exit(0);
+	}
+	
+	/**
+	 * Ejercicio 4f
+	 * 
+	 * @param cola1
+	 * @param cola2
+	 * @return
+	 */
+	private static boolean esInversa(ColaTDA cola1, ColaTDA cola2){
+		
+		
+		PilaTDA pila = new PilaTF();
+		pila.InicializarPila();
+		
+		while(!cola1.ColaVacia()){		
+			pila.Apilar(cola1.Primero());
+			cola1.Desacolar();			
+		}
+		
+		boolean esInversa = true;
+		
+		while(!cola2.ColaVacia() && !pila.PilaVacia()){
+			
+			if(cola2.Primero() == pila.Tope()){				
+				pila.Desapilar();
+				cola2.Desacolar();		
+			}else{
+				esInversa = false;
+				break;
+			}			
+		}
+		
+		if(!cola2.ColaVacia() || !pila.PilaVacia())
+			esInversa = false;
+		
+		
+		return esInversa;		
 	}
 	
 	/**

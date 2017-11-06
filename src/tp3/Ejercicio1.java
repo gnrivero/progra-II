@@ -29,8 +29,11 @@ public class Ejercicio1 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+				
+		int result = 9 / 2;
 		
+		System.out.println("El resultado es: " + result);
 		
-
+		System.exit(0);
 	}
 }

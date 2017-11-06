@@ -1,4 +1,4 @@
-package impl;
+package impl.dinamicos.basicos;
 
 public class NodoPrioridad {
 	

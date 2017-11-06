@@ -1,7 +1,7 @@
 package utils;
 
-import api.ColaTDA;
-import api.PilaTDA;
+import api.basicos.ColaTDA;
+import api.basicos.PilaTDA;
 
 public class ColaUtils {
 		

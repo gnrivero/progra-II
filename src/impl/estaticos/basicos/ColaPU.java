@@ -1,6 +1,6 @@
-package impl;
+package impl.estaticos.basicos;
 
-import api.ColaTDA;
+import api.basicos.ColaTDA;
 
 public class ColaPU implements ColaTDA {
 	
