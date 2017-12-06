@@ -1,5 +1,14 @@
 package tp3;
 
+import utils.ColaUtils;
+import utils.PilaUtils;
+import impl.dinamicos.basicos.ColaLD;
+import impl.dinamicos.basicos.PilaLD;
+import impl.dinamicos.conjuntos.ConjuntoLD;
+import api.basicos.ColaTDA;
+import api.basicos.PilaTDA;
+import api.conjuntos.ConjuntoTDA;
+
 public class Ejercicio1 {
 
 	
@@ -36,4 +45,133 @@ public class Ejercicio1 {
 		
 		System.exit(0);
 	}
+	
+	/**
+	 * Permite conocer si una pila es capicúa
+	 * 
+	 * @param pila
+	 * @return
+	 */
+	public static boolean punto_a(PilaTDA pila){
+		
+		//Utilizo esta cola para guardar los datos de la pila original
+		ColaTDA colaCopia = new ColaLD();
+		colaCopia.InicializarCola();
+				
+		PilaTDA pilaAux = new PilaLD();
+		pilaAux.InicializarPila();
+		
+		ColaTDA colaAux = new ColaLD();
+		colaAux.InicializarCola();
+		
+		
+		int contadorElementos = 0;
+		while(!pila.PilaVacia()){
+			pilaAux.Apilar(pila.Tope());
+			colaAux.Acolar(pila.Tope());
+			
+			colaCopia.Acolar(pila.Tope());
+						
+			pila.Desapilar();
+			contadorElementos++;
+		}
+		
+		int mitad = contadorElementos / 2;
+		int index = 0;
+		
+		boolean esCapicua = true;
+				
+		while(esCapicua && index < mitad){
+								
+			if (colaAux.Primero() != pilaAux.Tope())
+				esCapicua = false;
+			
+			colaAux.Desacolar();
+			pilaAux.Desapilar();			
+			
+			index++;			
+		}
+		
+		
+		while(!colaCopia.ColaVacia()){
+			pila.Apilar(colaCopia.Primero());
+			colaCopia.Desacolar();
+		}
+		
+		return esCapicua;
+	}
+	
+	
+	/**
+	 * Elimina los repetidos de una pila
+	 * @param pila
+	 * @return
+	 */
+	public static PilaTDA punto_b(PilaTDA pila){
+	
+		PilaTDA pilaInvertida = new PilaLD();
+		pilaInvertida.InicializarPila();
+		
+		PilaTDA pilaFinal = new PilaLD();
+		pilaFinal.InicializarPila();
+		
+		ConjuntoTDA conjunto = new ConjuntoLD();
+		conjunto.InicializarConjunto();
+		
+		//pasarPila(origen, destino)
+		PilaUtils.pasarPila(pila, pilaInvertida);	
+		
+		pilaFinal.Apilar(pilaInvertida.Tope());
+		conjunto.Agregar(pilaInvertida.Tope());
+		pilaInvertida.Desapilar();
+		
+		while(!pilaInvertida.PilaVacia()){
+			
+			if(!conjunto.Pertenece(pilaInvertida.Tope())){
+				conjunto.Agregar(pilaInvertida.Tope());
+				pilaFinal.Apilar(pilaInvertida.Tope());				
+			}			
+			
+			pilaInvertida.Desapilar();
+		}
+		
+		return pilaFinal;
+	}
+	
+	/**
+	 * Parte una pila en dos mitades
+	 * 
+	 * @param pila
+	 * @return
+	 */
+	public static int punto_c(PilaTDA pila){
+		
+		ColaTDA colaAux = new ColaLD();
+		colaAux.InicializarCola();
+		
+		
+		int cantidadDeElementos = 0;
+		while(!pila.PilaVacia()){
+			colaAux.Acolar(pila.Tope());
+			pila.Desapilar();
+			cantidadDeElementos++;
+		}
+		
+		//Recupero la pila original
+		ColaUtils.pasarCola(colaAux, pila);
+		
+		int mitad = cantidadDeElementos / 2;
+		
+		PilaTDA pilaMitad1 = new PilaLD();
+		pilaMitad1.InicializarPila();
+		PilaTDA pilaMitad2 = new PilaLD();
+		pilaMitad2.InicializarPila();
+		
+		
+		
+		return cantidadDeElementos;
+	}
+	
+	
+	
 }
