@@ -1,10 +1,9 @@
 package tp3;
 
-import utils.ColaUtils;
-import utils.PilaUtils;
 import impl.dinamicos.basicos.ColaLD;
 import impl.dinamicos.basicos.PilaLD;
 import impl.dinamicos.conjuntos.ConjuntoLD;
+import utils.PilaUtils;
 import api.basicos.ColaTDA;
 import api.basicos.PilaTDA;
 import api.conjuntos.ConjuntoTDA;
@@ -159,19 +158,19 @@ public class Ejercicio1 {
 	 */
 	public static void punto_c(PilaTDA pila, PilaTDA pilaMitad1, PilaTDA pilaMitad2){
 		
-		ColaTDA colaAux = new ColaLD();
-		colaAux.InicializarCola();
+		PilaTDA pilaAux = new PilaLD();
+		pilaAux.InicializarPila();
 		
 		
 		int cantidadDeElementos = 0;
 		while(!pila.PilaVacia()){
-			colaAux.Acolar(pila.Tope());
+			pilaAux.Apilar(pila.Tope());
 			pila.Desapilar();
 			cantidadDeElementos++;
 		}
 		
 		//Recupero la pila original
-		ColaUtils.pasarCola(colaAux, pila);
+		PilaUtils.pasarPila(pilaAux, pila);
 		
 		int mitad = cantidadDeElementos / 2;
 				
@@ -180,10 +179,10 @@ public class Ejercicio1 {
 		
 		while (cantidadDeElementos > 0){
 			
-			if(cantidadDeElementos < mitad){
-				pilaMitad1.Apilar(colaAux.Primero());
+			if(cantidadDeElementos >= mitad){
+				pilaMitad1.Apilar(pilaAux.Tope());
 			}else{
-				pilaMitad2.Apilar(colaAux.Primero());
+				pilaMitad2.Apilar(pilaAux.Tope());
 			}
 			
 			cantidadDeElementos--;
@@ -208,16 +207,19 @@ public class Ejercicio1 {
 		
 		PilaUtils.pasarPila(pila, pilaAux);
 		
+		
+		conjuntoAux.Agregar(pilaAux.Tope());
+		pila.Apilar(pilaAux.Tope());//para recuperar la pila original
+		pilaAux.Desapilar();
+		
 		while(!pilaAux.PilaVacia()){
 			
-			if(conjuntoAux.Pertenece(pilaAux.Tope())){
+			if(conjuntoAux.Pertenece(pilaAux.Tope()))
 				conjuntoDeRepetidos.Agregar(pilaAux.Tope()); 
-			}
+						
+			conjuntoAux.Agregar(pilaAux.Tope());			
 			
-			conjuntoAux.Agregar(pilaAux.Tope());
-			
-			//vuelvo a pasar a la pila para conservar la original 
-			pila.Apilar(pilaAux.Tope());	
+			pila.Apilar(pilaAux.Tope());//para conservar la pila original 
 			pilaAux.Desapilar();
 		}
 		
