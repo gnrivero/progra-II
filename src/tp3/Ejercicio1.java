@@ -38,10 +38,23 @@ public class Ejercicio1 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-				
-		int result = 9 / 2;
 		
-		System.out.println("El resultado es: " + result);
+		PilaTDA pila = new PilaLD();
+		pila.InicializarPila();
+		
+		pila.Apilar(4);
+		pila.Apilar(2);
+		pila.Apilar(1);
+		pila.Apilar(1);
+		pila.Apilar(3);
+		pila.Apilar(5);
+		pila.Apilar(7);
+		pila.Apilar(4);
+		pila.Apilar(7);
+		
+		ConjuntoTDA repetidos = punto_d(pila);
+		
+		repetidos.Elegir();
 		
 		System.exit(0);
 	}
@@ -144,7 +157,7 @@ public class Ejercicio1 {
 	 * @param pila
 	 * @return
 	 */
-	public static int punto_c(PilaTDA pila){
+	public static void punto_c(PilaTDA pila, PilaTDA pilaMitad1, PilaTDA pilaMitad2){
 		
 		ColaTDA colaAux = new ColaLD();
 		colaAux.InicializarCola();
@@ -161,15 +174,54 @@ public class Ejercicio1 {
 		ColaUtils.pasarCola(colaAux, pila);
 		
 		int mitad = cantidadDeElementos / 2;
-		
-		PilaTDA pilaMitad1 = new PilaLD();
-		pilaMitad1.InicializarPila();
-		PilaTDA pilaMitad2 = new PilaLD();
+				
+		pilaMitad1.InicializarPila();		
 		pilaMitad2.InicializarPila();
 		
+		while (cantidadDeElementos > 0){
+			
+			if(cantidadDeElementos < mitad){
+				pilaMitad1.Apilar(colaAux.Primero());
+			}else{
+				pilaMitad2.Apilar(colaAux.Primero());
+			}
+			
+			cantidadDeElementos--;
+		}
 		
+	}
+	
+	/**
+	 * Genera un conjunto de elementos repetidos de una pila
+	 * 
+	 * @return
+	 */
+	public static ConjuntoTDA punto_d(PilaTDA pila){
 		
-		return cantidadDeElementos;
+		ConjuntoTDA conjuntoAux = new ConjuntoLD();
+		conjuntoAux.InicializarConjunto();
+		ConjuntoTDA conjuntoDeRepetidos = new ConjuntoLD();
+		conjuntoDeRepetidos.InicializarConjunto();
+		
+		PilaTDA pilaAux = new PilaLD();
+		pilaAux.InicializarPila();
+		
+		PilaUtils.pasarPila(pila, pilaAux);
+		
+		while(!pilaAux.PilaVacia()){
+			
+			if(conjuntoAux.Pertenece(pilaAux.Tope())){
+				conjuntoDeRepetidos.Agregar(pilaAux.Tope()); 
+			}
+			
+			conjuntoAux.Agregar(pilaAux.Tope());
+			
+			//vuelvo a pasar a la pila para conservar la original 
+			pila.Apilar(pilaAux.Tope());	
+			pilaAux.Desapilar();
+		}
+		
+		return conjuntoDeRepetidos;
 	}
 	
 	
