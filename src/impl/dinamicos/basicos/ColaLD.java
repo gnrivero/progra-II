@@ -16,14 +16,14 @@ public class ColaLD implements ColaTDA {
 	@Override
 	public void Acolar(int x) {
 		
-		Nodo aux = new Nodo();
-		aux.info = x;
-		aux.sig = null;
+		Nodo nuevo = new Nodo();
+		nuevo.info = x;
+		nuevo.sig = null;
 		
 		if (ultimo != null)
-			ultimo.sig = aux;
+			ultimo.sig = nuevo;
 		
-		ultimo = aux;
+		ultimo = nuevo;
 		
 		if(primero == null)
 			primero = ultimo;

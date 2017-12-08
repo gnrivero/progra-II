@@ -1,5 +1,8 @@
 package tp3;
 
+import impl.dinamicos.diccionarios.DicSimpleL;
+import api.diccionarios.DiccionarioSimpleTDA;
+
 
 
 public class Ejercicio5 {
@@ -18,8 +21,15 @@ public class Ejercicio5 {
 	 */
 	public static void main(String[] args) {
 		
+		DiccionarioSimpleTDA diccionario = new DicSimpleL();
+		diccionario.InicializarDiccionario();
 		
-
+		diccionario.Agregar(1, 3);
+		diccionario.Agregar(2, 5);
+		diccionario.Agregar(3, 7);
+		
+		
+		System.exit(0);
 	}
 
 }

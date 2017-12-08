@@ -23,15 +23,17 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 
 	@Override
 	public void Agregar(int clave, int valor) {
+		
 		NodoClave nc = Clave2NodoClave(clave);
-		if(nc== null){
+		
+		if(nc == null){
 			nc = new NodoClave();
 			nc.clave = 	clave;
 			nc.sigClave = origen;
 			origen = nc;
 		}
-		nc.valor = valor; 
 		
+		nc.valor = valor; 		
 	}
 	
 	private NodoClave Clave2NodoClave(int clave){

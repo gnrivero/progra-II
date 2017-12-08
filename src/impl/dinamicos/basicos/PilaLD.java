@@ -13,10 +13,10 @@ public class PilaLD implements PilaTDA {
 
 	@Override
 	public void Apilar(int x) {
-		Nodo aux = new Nodo();
-		aux.info = x;
-		aux.sig = primero;
-		primero = aux;
+		Nodo nuevo = new Nodo();
+		nuevo.info = x;
+		nuevo.sig = primero;
+		primero = nuevo;
 	}
 
 	@Override

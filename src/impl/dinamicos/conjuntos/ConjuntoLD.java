@@ -6,6 +6,7 @@ import api.conjuntos.ConjuntoTDA;
 public class ConjuntoLD implements ConjuntoTDA {
 
 	Nodo c;
+	
 	private static final int MAX = 10;
 	
 	@Override
@@ -21,12 +22,11 @@ public class ConjuntoLD implements ConjuntoTDA {
 	@Override
 	public void Agregar(int x) {
 		if(!this.Pertenece(x)){
-			Nodo aux = new Nodo();
-			aux.info = x;
-			aux.sig = c;
 			
-			c = aux;
-			
+			Nodo nuevo = new Nodo();
+			nuevo.info = x;
+			nuevo.sig = c;			
+			c = nuevo;			
 		}
 
 	}
