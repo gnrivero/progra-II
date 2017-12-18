@@ -12,7 +12,7 @@ public class ConjuntoLD implements ConjuntoTDA {
 	
 	Nodo c;
 	
-	private static final int MAX = 10;
+	//private static final int MAX = 10;
 	
 	@Override
 	public void InicializarConjunto() {

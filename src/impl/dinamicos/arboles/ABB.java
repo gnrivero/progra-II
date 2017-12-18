@@ -4,6 +4,13 @@ import api.arboles.ABBTDA;
 
 public class ABB implements ABBTDA {
 	
+	public class NodoABB {
+		
+		int info ;
+		ABBTDA hijoIzq;
+		ABBTDA hijoDer;
+	}
+	
 	NodoABB raiz;
 
 	@Override
