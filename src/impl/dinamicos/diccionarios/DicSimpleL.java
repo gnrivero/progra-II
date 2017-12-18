@@ -9,7 +9,7 @@ public class DicSimpleL implements DiccionarioSimpleTDA {
 	class NodoClave {
 		int clave;
 		int valor;
-				
+		
 		NodoClave sigClave;
 	}
 	

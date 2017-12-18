@@ -1,10 +1,15 @@
 package impl.dinamicos.conjuntos;
 
-import impl.dinamicos.conjuntos.Nodo;
 import api.conjuntos.ConjuntoTDA;
 
 public class ConjuntoLD implements ConjuntoTDA {
 
+	public class Nodo {
+		int info;
+		Nodo sig;
+	}
+	
+	
 	Nodo c;
 	
 	private static final int MAX = 10;
