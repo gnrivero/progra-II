@@ -3,12 +3,11 @@ package impl.dinamicos.conjuntos;
 import api.conjuntos.ConjuntoTDA;
 
 public class ConjuntoLD implements ConjuntoTDA {
-
+	
 	public class Nodo {
 		int info;
 		Nodo sig;
 	}
-	
 	
 	Nodo c;
 	
@@ -18,24 +17,23 @@ public class ConjuntoLD implements ConjuntoTDA {
 	public void InicializarConjunto() {
 		c = null;
 	}
-
+	
 	@Override
 	public boolean ConjuntoVacio() {
 		return (c == null);
 	}
-
+	
 	@Override
 	public void Agregar(int x) {
+		
 		if(!this.Pertenece(x)){
-			
 			Nodo nuevo = new Nodo();
 			nuevo.info = x;
-			nuevo.sig = c;			
+			nuevo.sig = c;	
 			c = nuevo;			
 		}
-
 	}
-
+	
 	@Override
 	public int Elegir() {
 		return c.info ;
@@ -43,7 +41,9 @@ public class ConjuntoLD implements ConjuntoTDA {
 
 	@Override
 	public void Sacar(int x) {
+		
 		if (c != null) {
+			
 			//si es el primer elemento de la lista
 			if (c.info == x) {
 				c = c.sig;
@@ -54,11 +54,10 @@ public class ConjuntoLD implements ConjuntoTDA {
 				
 				if(aux.sig != null)
 					aux.sig = aux.sig.sig;
-				}
+			}
 		}
-		
 	}
-
+	
 	@Override
 	public boolean Pertenece(int x) {
 		Nodo aux = c;

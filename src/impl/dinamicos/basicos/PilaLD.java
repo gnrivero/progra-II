@@ -4,34 +4,34 @@ import api.basicos.PilaTDA;
 
 public class PilaLD implements PilaTDA {
 
-	Nodo primero;
+	Nodo tope;
 	
 	@Override
 	public void InicializarPila() {
-		primero = null;
+		tope = null;
 	}
 
 	@Override
 	public void Apilar(int x) {
 		Nodo nuevo = new Nodo();
 		nuevo.info = x;
-		nuevo.sig = primero;
-		primero = nuevo;
+		nuevo.sig = tope;
+		tope = nuevo;
 	}
 
 	@Override
 	public void Desapilar() {
-		primero = primero.sig;
+		tope = tope.sig;
 	}
 
 	@Override
 	public boolean PilaVacia() {		
-		return (primero == null);
+		return (tope == null);
 	}
 
 	@Override
 	public int Tope() {
-		return primero.info;
+		return tope.info;
 	}
 
 }

@@ -1,17 +1,18 @@
 package api.conjuntos;
 
+
 public interface ConjuntoTDA {
 	
 	void InicializarConjunto ();
-	// siempre que el conjunto este inicializado
-	boolean ConjuntoVacio() ;
-	// siempre que el conjunto este inicializado
-	void Agregar( int x);
-	// siempre que el conjunto este inicializado y no est´e vac´ıo
-	int Elegir();
-	// siempre que el conjunto este inicializado
-	void Sacar( int x);
-	// siempre que el conjunto este inicializado
-	boolean Pertenece(int x);		
+	
+	boolean ConjuntoVacio() ;//inicializado
+	
+	void Agregar(int x);//inicializado
+
+	int Elegir();//inicializado y no esté vacío
+	
+	void Sacar(int x);//inicializado
+	
+	boolean Pertenece(int x);//inicializado		
 
 }
